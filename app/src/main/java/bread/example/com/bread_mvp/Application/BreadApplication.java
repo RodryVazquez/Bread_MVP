@@ -7,7 +7,6 @@ import android.app.Application;
  */
 
 public class BreadApplication extends Application {
-
     @Override
     public void onCreate() {
         super.onCreate();
