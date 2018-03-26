@@ -4,5 +4,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bread.example.com.bread_mvp.View.MainActivity">
+    tools:context="bread.example.com.bread_mvp.View.Activities.MainActivity">
 </android.support.constraint.ConstraintLayout>
