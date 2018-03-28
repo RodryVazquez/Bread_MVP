@@ -19,6 +19,7 @@ public class BreadPresenterImpl implements BreadPresenter {
 
     @Override
     public void onResume() {
+        fetchBreadUsers();
     }
 
     @Override
@@ -27,9 +28,11 @@ public class BreadPresenterImpl implements BreadPresenter {
 
     @Override
     public void fetchBreadUsers() {
+        //TODO
     }
 
     @Override
     public void setView(BreadView view) {
+        this.breadView = view;
     }
 }
