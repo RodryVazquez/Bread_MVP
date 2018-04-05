@@ -4,6 +4,7 @@ import javax.inject.Singleton;
 
 import bread.example.com.bread_mvp.Presentation.Bread.BreadPresenter;
 import bread.example.com.bread_mvp.Presentation.Bread.BreadPresenterImpl;
+import bread.example.com.bread_mvp.Repository.BreadRepository.ApiBreadRepositoryImpl;
 import bread.example.com.bread_mvp.Repository.BreadRepository.BreadRepository;
 import bread.example.com.bread_mvp.Repository.BreadRepository.RealmBreadRepositoryImpl;
 import dagger.Module;
@@ -14,7 +15,7 @@ public class BreadModule {
 
     @Provides
     @Singleton
-    public BreadRepository provideBreadRepository(){return new RealmBreadRepositoryImpl();}
+    public BreadRepository provideBreadRepository(){return new ApiBreadRepositoryImpl();}
 
     @Provides
     public BreadPresenter provideBreadPresenter(){
