@@ -39,4 +39,14 @@ public class RealmBreadRepositoryImpl implements BreadRepository {
     public List<BreadModel> query(Criteria criteria) {
         return null;
     }
+
+    @Override
+    public String setBreadTurn(int id) {
+        return null;
+    }
+
+    @Override
+    public String setToken(String token, int id) {
+        return null;
+    }
 }

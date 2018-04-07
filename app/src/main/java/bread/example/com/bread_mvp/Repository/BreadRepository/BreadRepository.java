@@ -11,4 +11,6 @@ import bread.example.com.bread_mvp.Repository.Criteria;
  */
 
 public interface BreadRepository extends BaseRepository<BreadModel> {
+    String setBreadTurn(int id);
+    String setToken(String token, int id);
 }

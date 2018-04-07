@@ -1,5 +1,8 @@
 package bread.example.com.bread_mvp.Modules;
 
+import android.os.Environment;
+
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import bread.example.com.bread_mvp.Presentation.Bread.BreadPresenter;
@@ -15,10 +18,20 @@ public class BreadModule {
 
     @Provides
     @Singleton
-    public BreadRepository provideBreadRepository(){return new ApiBreadRepositoryImpl();}
+    @Named("ApiImpl")
+    BreadRepository provideBreadApiRepository() {
+        return new ApiBreadRepositoryImpl();
+    }
 
     @Provides
-    public BreadPresenter provideBreadPresenter(){
-        return new BreadPresenterImpl();
+    @Singleton
+    @Named("RealmImpl")
+    BreadRepository provideBreadRealmRepository() {
+        return new RealmBreadRepositoryImpl();
+    }
+
+    @Provides
+    public BreadPresenter provideBreadPresenter(@Named("ApiImpl") BreadRepository breadRepository) {
+        return new BreadPresenterImpl(breadRepository);
     }
 }
