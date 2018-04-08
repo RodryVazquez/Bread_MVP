@@ -26,6 +26,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
+    //Recycler View
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+
     //Dagger 2
     implementation 'com.google.dagger:dagger-android:2.11'
     implementation 'com.google.dagger:dagger-android-support:2.11' // if you use the support libraries
@@ -38,4 +41,5 @@ dependencies {
 
     //Butterknife
     compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

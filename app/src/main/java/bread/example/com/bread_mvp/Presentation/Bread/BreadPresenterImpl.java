@@ -30,8 +30,16 @@ public class BreadPresenterImpl implements BreadPresenter {
 
     @Override
     public void fetchBreadUsers() {
-        List<BreadModel> ds = breadRepository.query(null);
-        this.breadView.displayBreadUsers(ds);
+        try {
+            this.breadView.showProgress();
+            List<BreadModel> ds = breadRepository.query(null);
+            this.breadView.displayBreadUsers(ds);
+            this.breadView.hideProgress();
+        } catch (Exception e) {
+            System.out.println(e);
+            this.breadView.hideProgress();
+            this.breadView.showErrorMessage(e);
+        }
     }
 
     @Override

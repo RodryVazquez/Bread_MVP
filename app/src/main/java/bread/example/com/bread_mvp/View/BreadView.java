@@ -8,7 +8,6 @@ import bread.example.com.bread_mvp.Model.BreadModel;
  * Created by Rodrigo Vazquez on 26/03/2018.
  */
 
-public interface BreadView {
+public interface BreadView extends  BaseView{
     void displayBreadUsers(List<BreadModel> ds);
-    void showErrorMessage(String errorMessage);
 }

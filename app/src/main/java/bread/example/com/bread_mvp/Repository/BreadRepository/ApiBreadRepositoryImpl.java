@@ -43,7 +43,7 @@ public class ApiBreadRepositoryImpl implements BreadRepository {
         return response;
     }
 
-    public String setBreadTurn(int id) {
+    public String setBreadTurn(int id)  {
         final StringBuilder error = new StringBuilder();
         BreadService breadService = ServiceGenerator.createService(BreadService.class);
         Call<Body> call = breadService.SetBreadTurn(id);
@@ -59,11 +59,12 @@ public class ApiBreadRepositoryImpl implements BreadRepository {
 
             @Override
             public void onFailure(Call<Body> call, Throwable t) {
-                    error.append(t.getMessage());
+
             }
         });
         return error.toString();
     }
+
 
     public String setToken(String token, int id) {
         final StringBuilder error = new StringBuilder();
@@ -81,7 +82,7 @@ public class ApiBreadRepositoryImpl implements BreadRepository {
 
             @Override
             public void onFailure(Call<Body> call, Throwable t) {
-                error.append(t.getMessage());
+
             }
         });
         return error.toString();

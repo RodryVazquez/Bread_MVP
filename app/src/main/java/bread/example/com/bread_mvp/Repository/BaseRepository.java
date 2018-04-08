@@ -8,15 +8,15 @@ import java.util.List;
 
 public interface BaseRepository<T> {
 
-    void add(T item);
+    void add(T item) throws Exception;
 
-    void add(Iterable<T> items);
+    void add(Iterable<T> items) throws Exception;
 
-    void update(T item);
+    void update(T item) throws  Exception;
 
-    void remove(T item);
+    void remove(T item) throws  Exception;
 
-    void remove(Criteria criteria);
+    void remove(Criteria criteria) throws  Exception;
 
-    List<T> query(Criteria criteria);
+    List<T> query(Criteria criteria) throws Exception;
 }
