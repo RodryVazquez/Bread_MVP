@@ -40,13 +40,19 @@ public class RealmBreadRepositoryImpl implements BreadRepository {
         return null;
     }
 
+
     @Override
-    public String setBreadTurn(int id) {
-        return null;
+    public void setBreadTurn(int id, ApiCallback callback) {
+
     }
 
     @Override
-    public String setToken(String token, int id) {
-        return null;
+    public void setToken(String token, int id, ApiCallback callback) {
+
+    }
+
+    @Override
+    public void fetchBreadUsers(ApiCallback callback) {
+
     }
 }

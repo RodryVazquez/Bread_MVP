@@ -3,6 +3,7 @@ package bread.example.com.bread_mvp.Api;
 import java.util.List;
 
 import bread.example.com.bread_mvp.Model.BreadModel;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -17,11 +18,11 @@ public interface BreadService {
     String URL_SET_USER_TOKEN = "/api/breadusers/{token}";
 
     @GET(URL_GET_BREAD_USERS)
-    List<BreadModel> GetBreadUsers();
+    Call<List<BreadModel>> GetBreadUsers();
 
     @PUT(URL_SET_BREAD_TURN)
-    Call<Body> SetBreadTurn(@Path("id") int id);
+    Call<ResponseBody> SetBreadTurn(@Path("id") int id);
 
     @PUT(URL_SET_USER_TOKEN)
-    Call<Body> SetUserToken(@Path("token") String token, @Query("id") int id);
+    Call<ResponseBody> SetUserToken(@Path("token") String token, @Query("id") int id);
 }

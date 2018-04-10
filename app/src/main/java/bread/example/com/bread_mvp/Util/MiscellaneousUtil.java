@@ -5,4 +5,5 @@ package bread.example.com.bread_mvp.Util;
  */
 
 public class MiscellaneousUtil {
+
 }
