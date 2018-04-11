@@ -8,6 +8,5 @@ import bread.example.com.bread_mvp.View.BreadView;
  */
 
 public interface BreadPresenter extends LifeCyclesPresenter {
-    void fetchBreadUsers();
     void setView(BreadView view);
 }

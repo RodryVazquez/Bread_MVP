@@ -29,7 +29,6 @@ public class BreadPresenterImpl implements BreadPresenter {
     public void onPause() {
     }
 
-    @Override
     public void fetchBreadUsers() {
         this.breadView.showProgress();
         breadRepository.fetchBreadUsers(new ApiCallback<BreadModel>() {

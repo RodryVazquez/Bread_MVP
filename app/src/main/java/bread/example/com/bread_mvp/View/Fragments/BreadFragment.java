@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -37,8 +38,8 @@ public class BreadFragment extends Fragment implements BreadView {
 
     @BindView(R.id.lstBreadUsers)
     RecyclerView lstBreadUsers;
-    @BindView(R.id.pgrBreadUsers)
-    ProgressBar pgrBreadUsers;
+    @BindView(R.id.swipe_refresh)
+    SwipeRefreshLayout refreshLayout;
 
     @Override
     public void onAttach(Context context) {
@@ -52,6 +53,14 @@ public class BreadFragment extends Fragment implements BreadView {
         ButterKnife.bind(this, root);
         lstBreadUsers.setHasFixedSize(true);
         lstBreadUsers.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                breadPresenter.onResume();
+            }
+        });
+
         return root;
     }
 
@@ -106,11 +115,11 @@ public class BreadFragment extends Fragment implements BreadView {
 
     @Override
     public void showProgress() {
-        pgrBreadUsers.setVisibility(View.VISIBLE);
+        refreshLayout.setRefreshing(true);
     }
 
     @Override
     public void hideProgress() {
-        pgrBreadUsers.setVisibility(View.GONE);
+        refreshLayout.setRefreshing(false);
     }
 }
