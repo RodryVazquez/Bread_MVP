@@ -4,7 +4,7 @@ En el siguiente ejemplo veremos como implementar de manera sencilla los concepto
   
 ## Resumen  
   
-Como parte de cada internship en mi empleo actual se les pide a los nuevos reclutas desarrollar un programa principalmente para uso interno, mismo que nos sirve para medir su conocimiento general y detectar areas de oportunidad, como cada viernes a un compañero le toca el pan para todos, todo hiba bien pero despues de un tiempo empezamos a tener problemas ya sea por olvido, desorden en los turnos o simplemente una mala compra... en fin nace Bread Notification Service  
+Como parte de cada internship en mi empleo actual se les pide a los nuevos reclutas desarrollar un programa principalmente para uso interno, mismo que nos sirve para medir su conocimiento general y detectar areas de oportunidad, como cada viernes a un compañero le toca el pan para todos, todo iba bien pero después de un tiempo empezamos a tener problemas ya sea por olvido, desorden en los turnos o simplemente una mala compra... en fin nace Bread Notification Service
   
 ### Requisitos  
 ```  
@@ -294,29 +294,3 @@ public class BreadPresenterImpl implements BreadPresenter {
 * [MVP](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) - Model-View-Presenter  
 * [Unit Test](http://site.mockito.org/) - Mockito  
 * [Unit Test](http://robolectric.org/) - Roboelectric
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
