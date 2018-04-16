@@ -19,7 +19,13 @@ public class ServiceGenerator {
         return retrofit.create(serviceClass);
     }
 
+    public static Retrofit retrofit(){
+        return retrofit;
+    }
+
     public static void changeBaseUrl(String newUrl){
         BASE_URL = newUrl;
     }
+
+    public static String getBaseUrl(){return BASE_URL;}
 }

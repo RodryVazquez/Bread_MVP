@@ -1,9 +1,13 @@
 package bread.example.com.bread_mvp.Repository.BreadRepository;
 
+import android.app.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import bread.example.com.bread_mvp.Api.ApiError;
 import bread.example.com.bread_mvp.Api.BreadService;
+import bread.example.com.bread_mvp.Api.ErrorUtils;
 import bread.example.com.bread_mvp.Api.ServiceGenerator;
 import bread.example.com.bread_mvp.Model.BreadModel;
 import bread.example.com.bread_mvp.Repository.Criteria;
@@ -17,27 +21,22 @@ public class ApiBreadRepositoryImpl implements BreadRepository {
 
     @Override
     public void add(BreadModel item) {
-
     }
 
     @Override
     public void add(Iterable<BreadModel> items) {
-
     }
 
     @Override
     public void update(BreadModel item) {
-
     }
 
     @Override
     public void remove(BreadModel item) {
-
     }
 
     @Override
     public void remove(Criteria criteria) {
-
     }
 
     @Override
@@ -55,7 +54,8 @@ public class ApiBreadRepositoryImpl implements BreadRepository {
                 if (response.isSuccessful()) {
                     callback.onGenericMessage(response.body().toString());
                 } else {
-                    callback.onGenericMessage(response.message());
+                    ApiError error = ErrorUtils.parseError(response);
+                    callback.onGenericMessage(error.getMessage());
                 }
             }
 
@@ -76,7 +76,8 @@ public class ApiBreadRepositoryImpl implements BreadRepository {
                 if (response.isSuccessful()) {
                     callback.onGenericMessage(response.body().toString());
                 } else {
-                    callback.onGenericMessage(response.message());
+                    ApiError error = ErrorUtils.parseError(response);
+                    callback.onGenericMessage(error.getMessage());
                 }
             }
 
@@ -89,6 +90,7 @@ public class ApiBreadRepositoryImpl implements BreadRepository {
 
     @Override
     public void fetchBreadUsers(final ApiCallback callback) {
+
         BreadService breadService = ServiceGenerator.createService(BreadService.class);
         Call<List<BreadModel>> response = breadService.GetBreadUsers();
         response.enqueue(new Callback<List<BreadModel>>() {
@@ -97,7 +99,8 @@ public class ApiBreadRepositoryImpl implements BreadRepository {
                 if (response.isSuccessful()) {
                     callback.onSuccess(response.body());
                 } else {
-                    callback.onGenericMessage(response.message());
+                    ApiError error = ErrorUtils.parseError(response);
+                    callback.onGenericMessage(error.getMessage());
                 }
             }
 
