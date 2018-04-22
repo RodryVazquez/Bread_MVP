@@ -45,4 +45,13 @@ dependencies {
 
     //Instabug
     compile 'com.instabug.library:instabug:4.13.1'
+    compile 'com.instabug.library:instabug-with-okhttp-interceptor:4.2.0'
+
+    //Leak Canary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    //Timber logging
+    implementation 'com.jakewharton.timber:timber:4.7.0'
 }

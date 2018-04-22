@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
  * Created by Rodrigo Vazquez on 26/03/2018.
  */
 
-public class BreadFragment extends Fragment implements BreadView {
+public class BreadFragment extends BaseFragment implements BreadView {
 
     @Inject
     BreadPresenter breadPresenter;
@@ -60,7 +60,6 @@ public class BreadFragment extends Fragment implements BreadView {
                 breadPresenter.onResume();
             }
         });
-
         return root;
     }
 
@@ -68,6 +67,7 @@ public class BreadFragment extends Fragment implements BreadView {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((BreadApplication) getActivity().getApplication()).getBreadComponent().inject(this);
+        
     }
 
     @Override
@@ -104,6 +104,7 @@ public class BreadFragment extends Fragment implements BreadView {
     @Override
     public void showOfflineMessage(boolean isCritical) {
         if (isCritical) {
+            Toast.makeText(getContext(), getContext().getResources().getString(R.string.no_internet_connection_message), Toast.LENGTH_SHORT).show();
         }
     }
 

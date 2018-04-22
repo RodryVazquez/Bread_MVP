@@ -1,5 +1,6 @@
 package bread.example.com.bread_mvp.Modules;
 
+import android.content.Context;
 import android.os.Environment;
 
 import javax.inject.Named;
@@ -15,6 +16,10 @@ import dagger.Provides;
 
 @Module
 public class BreadModule {
+
+    Context context;
+
+    public BreadModule(Context context){ this.context = context;}
 
     @Provides
     @Singleton

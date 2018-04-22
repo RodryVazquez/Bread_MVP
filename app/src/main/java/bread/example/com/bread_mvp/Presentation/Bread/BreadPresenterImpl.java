@@ -40,6 +40,7 @@ public class BreadPresenterImpl implements BreadPresenter {
 
             @Override
             public void onError(Throwable t) {
+
                 breadView.showErrorMessage(t);
                 breadView.hideProgress();
             }
