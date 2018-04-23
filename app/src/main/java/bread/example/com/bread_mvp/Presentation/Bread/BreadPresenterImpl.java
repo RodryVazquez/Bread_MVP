@@ -2,6 +2,7 @@ package bread.example.com.bread_mvp.Presentation.Bread;
 
 import java.util.List;
 
+import bread.example.com.bread_mvp.Api.Exceptions.ConnectionException;
 import bread.example.com.bread_mvp.Model.BreadModel;
 import bread.example.com.bread_mvp.Repository.BreadRepository.ApiCallback;
 import bread.example.com.bread_mvp.Repository.BreadRepository.BreadRepository;
@@ -40,8 +41,11 @@ public class BreadPresenterImpl implements BreadPresenter {
 
             @Override
             public void onError(Throwable t) {
-
-                breadView.showErrorMessage(t);
+                if(t instanceof ConnectionException){
+                    breadView.showOfflineMessage(true);
+                }else{
+                    breadView.showErrorMessage(t);
+                }
                 breadView.hideProgress();
             }
 

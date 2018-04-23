@@ -9,6 +9,7 @@ import com.instabug.library.logging.InstabugNetworkLog;
 import com.instabug.library.okhttplogger.InstabugOkhttpInterceptor;
 
 import java.io.IOException;
+import java.net.ConnectException;
 
 import bread.example.com.bread_mvp.Application.BreadApplication;
 import bread.example.com.bread_mvp.R;
@@ -36,7 +37,7 @@ public class ServiceGenerator {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
                     if(!ConnectionUtil.isConnected(appContext)){
-                        throw  new IOException(appContext.getResources().getString(R.string.no_internet_connection_message));
+                        throw  new ConnectException(appContext.getResources().getString(R.string.no_internet_connection_message));
                     }
                     Request request = chain.request();
                     Response response = chain.proceed(request);
